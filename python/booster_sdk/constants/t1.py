@@ -10,6 +10,7 @@ from booster_robotics_sdk_python import B1LocoApiId as ImportedB1LocoApiId
 from booster_robotics_sdk_python import Frame as ImportedFrame
 from booster_robotics_sdk_python import GripperControlMode as ImportedGripperControlMode
 from booster_robotics_sdk_python import RobotMode as ImportedRobotMode
+from booster_robotics_sdk_python import LowCmdType as ImportedLowCmdType
 
 
 class RobotMode(Enum):
@@ -111,6 +112,11 @@ class Frame(Enum):
     RIGHT_HAND = ImportedFrame.kRightHand
     LEFT_FOOT = ImportedFrame.kLeftFoot
     RIGHT_FOOT = ImportedFrame.kRightFoot
+
+
+class LowCmdType(Enum):
+    PARALLEL = ImportedLowCmdType.PARALLEL
+    SERIAL = ImportedLowCmdType.SERIAL
 
 
 B1_JOINT_CNT_7_DOF_ARM = ImportedB1jointCnt7DofArm

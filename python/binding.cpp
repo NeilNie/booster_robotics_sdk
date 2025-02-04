@@ -169,6 +169,40 @@ PYBIND11_MODULE(booster_robotics_sdk_python, m) {
         .value("kCrankDownRight", robot::b1::JointIndex::kCrankDownRight)
         .export_values();
 
+    py::enum_<robot::b1::JointIndexWith7DofArm>(m, "B1JointIndexWith7DofArm")
+        .value("kHeadYaw", robot::b1::JointIndexWith7DofArm::kHeadYaw)
+        .value("kHeadPitch", robot::b1::JointIndexWith7DofArm::kHeadPitch)
+        .value("kLeftShoulderPitch", robot::b1::JointIndexWith7DofArm::kLeftShoulderPitch)
+        .value("kLeftShoulderRoll", robot::b1::JointIndexWith7DofArm::kLeftShoulderRoll)
+        .value("kLeftElbowPitch", robot::b1::JointIndexWith7DofArm::kLeftElbowPitch)
+        .value("kLeftElbowYaw", robot::b1::JointIndexWith7DofArm::kLeftElbowYaw)
+        .value("kLeftWristPitch", robot::b1::JointIndexWith7DofArm::kLeftWristPitch)
+        .value("kLeftWristYaw", robot::b1::JointIndexWith7DofArm::kLeftWristYaw)
+        .value("kLeftHandRoll", robot::b1::JointIndexWith7DofArm::kLeftHandRoll)
+        .value("kRightShoulderPitch", robot::b1::JointIndexWith7DofArm::kRightShoulderPitch)
+        .value("kRightShoulderRoll", robot::b1::JointIndexWith7DofArm::kRightShoulderRoll)
+        .value("kRightElbowPitch", robot::b1::JointIndexWith7DofArm::kRightElbowPitch)
+        .value("kRightElbowYaw", robot::b1::JointIndexWith7DofArm::kRightElbowYaw)
+        .value("kRightWristPitch", robot::b1::JointIndexWith7DofArm::kRightWristPitch)
+        .value("kRightWristYaw", robot::b1::JointIndexWith7DofArm::kRightWristYaw)
+        .value("kRightHandRoll", robot::b1::JointIndexWith7DofArm::kRightHandRoll)
+        .value("kWaist", robot::b1::JointIndexWith7DofArm::kWaist)
+        .value("kLeftHipPitch", robot::b1::JointIndexWith7DofArm::kLeftHipPitch)
+        .value("kLeftHipRoll", robot::b1::JointIndexWith7DofArm::kLeftHipRoll)
+        .value("kLeftHipYaw", robot::b1::JointIndexWith7DofArm::kLeftHipYaw)
+        .value("kLeftKneePitch", robot::b1::JointIndexWith7DofArm::kLeftKneePitch)
+        .value("kCrankUpLeft", robot::b1::JointIndexWith7DofArm::kCrankUpLeft)
+        .value("kCrankDownLeft", robot::b1::JointIndexWith7DofArm::kCrankDownLeft)
+        .value("kRightHipPitch", robot::b1::JointIndexWith7DofArm::kRightHipPitch)
+        .value("kRightHipRoll", robot::b1::JointIndexWith7DofArm::kRightHipRoll)
+        .value("kRightHipYaw", robot::b1::JointIndexWith7DofArm::kRightHipYaw)
+        .value("kRightKneePitch", robot::b1::JointIndexWith7DofArm::kRightKneePitch)
+        .value("kCrankUpRight", robot::b1::JointIndexWith7DofArm::kCrankUpRight)
+        .value("kCrankDownRight", robot::b1::JointIndexWith7DofArm::kCrankDownRight)
+        .export_values();
+
+    m.attr("B1JointCnt7DofArm") = robot::b1::kJointCnt7DofArm;
+
     m.attr("B1JointCnt") = robot::b1::kJointCnt;
 
     py::enum_<robot::b1::LocoApiId>(m, "B1LocoApiId")
@@ -192,7 +226,7 @@ PYBIND11_MODULE(booster_robotics_sdk_python, m) {
                "Position mode: stops at target position or specified reaction force")
         .value("kForce", robot::b1::GripperControlMode::kForce,
                "Force mode: continues to move with specified force if target position is not reached")
-        .export_values(); // 将枚举值导出为 Python 模块中的常量
+        .export_values();
 
     py::enum_<robot::Frame>(m, "Frame")
         .value("kUnknown", robot::Frame::kUnknown)

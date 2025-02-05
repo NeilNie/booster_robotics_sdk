@@ -13,6 +13,8 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 set(CMAKE_CXX_STANDARD 17)
 
+LINK_DIRECTORIES(/usr/local/lib)
+
 link_libraries(booster_robotics_sdk.a fastrtps fastcdr libfoonathan_memory-0.7.3.a)
 
 add_executable(b1_loco_example_client example/high_level/b1_loco_example_client.cpp)

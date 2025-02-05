@@ -1,8 +1,19 @@
 # Booster Robotics SDK
 Booster Robotics SDK aims to provide a simple and easy-to-use interface for developers to control the Booster Robotics products. 
 
+## additional install instructions
+[x] todo: add this to the README
+Install Fast-DDS (follow their instructions, sytem-wide install)
+Install PyBind
+Include new ld path to the cmake list file
+Relink tinyxml2 (version 9 vs. version 10)
+
+# TODO: 
+- update readme to include instructions for how to properly install the native python package
+
+
 ## Prebuild environment
-* OS  (Ubuntu 22.04 LTS)  
+* OS  (Ubuntu 22.04 LTS - Ubuntu 24.04 LTS)  
 * CPU  (aarch64 and x86_64)   
 * Compiler  (gcc version 11.4.0) 
 
@@ -50,6 +61,8 @@ cmake .. -DBUILD_PYTHON_BINDING=on
 make
 sudo make install
 ```
+
+By running `sudo make install`, the newly built Python binding will be installed to your local Python environment.
 
 if pybind11-stubgen cannot be found even after pip install, export PATH
 ```bash

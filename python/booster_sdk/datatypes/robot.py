@@ -1,12 +1,14 @@
 from dataclasses import dataclass
 from dataclasses import field
 from typing import List
+import numpy as np
 
 from booster_robotics_sdk_python import GripperMotionParameter as CppGripperMotionParameter
 from booster_robotics_sdk_python import ImuState as CppImuState
 from booster_robotics_sdk_python import LowState as CppLowState
 from booster_robotics_sdk_python import MotorCmd as CppMotorCmd
 from booster_robotics_sdk_python import MotorState as CppMotorState
+from booster_robotics_sdk_python import LowCmd as CppLowCmd
 from constants.t1 import LowCmdType
 
 
@@ -54,7 +56,7 @@ class ImuState:
 
 @dataclass
 class MotorState:
-    mode: int = 0
+    # mode: np.uint8 = 0
     q: float = 0.0
     dq: float = 0.0
     ddq: float = 0.0
@@ -68,7 +70,7 @@ class MotorState:
     @classmethod
     def from_cpp(cls, cpp_obj: CppMotorState) -> "MotorState":
         return cls(
-            mode=cpp_obj.mode,
+            # mode=cpp_obj.mode,
             q=cpp_obj.q,
             dq=cpp_obj.dq,
             ddq=cpp_obj.ddq,
@@ -82,7 +84,7 @@ class MotorState:
     def to_cpp(self) -> CppMotorState:
         # Create a fresh C++ MotorState and set properties
         c = CppMotorState()
-        c.mode = self.mode
+        # c.mode = self.mode
         c.q = self.q
         c.dq = self.dq
         c.ddq = self.ddq
@@ -182,3 +184,9 @@ class LowCmd:
     def __init__(self, num_joints: int, cmd_type: LowCmdType):
         self.cmd_type: LowCmdType = cmd_type
         self.motor_cmd: list[MotorCmd] = [MotorCmd() for _ in range(num_joints)]
+
+    def to_cpp(self):
+        c = CppLowCmd()
+        c.cmd_type = self.cmd_type.value
+        c.motor_cmd = [mc.to_cpp() for mc in self.motor_cmd]
+        return c

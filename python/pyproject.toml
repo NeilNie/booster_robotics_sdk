@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = []
+
+[project]
+name = "booster_sdk"
+version = "0.0.1"
+dependencies = [
+  "numpy",
+]
+requires-python = ">=3.8"
+authors = [
+  {name = "Neil Nie", email = "neilnie@stanford.edu"},
+]
+maintainers = [
+  {name = "Neil Nie", email = "neilnie@stanford.edu"}
+]
+description = "Python SDK for Booster Robotics"
+readme = "README.md"
+
+[project.urls]
+Homepage = "https://example.com"
+Documentation = "https://readthedocs.org"
+Repository = "https://github.com/me/spam.git"
+"Bug Tracker" = "https://github.com/me/spam/issues"
+Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
